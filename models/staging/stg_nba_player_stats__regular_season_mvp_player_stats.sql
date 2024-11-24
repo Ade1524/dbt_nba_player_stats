@@ -2,8 +2,6 @@ with mvp_player_season as (
     select * from {{ ref('nba_season_mvp')}}
 )
 
--- select * from mvp_player_season
-
 ,rename_columns_mvp_players_stats as (
     select concat((substring(season,1,4))::varchar,'-',(substring(season,1,4)::int + 1)::varchar) as seasons
           ,lg as league
@@ -26,11 +24,10 @@ with mvp_player_season as (
           ,voting ::varchar(1000) as voting
       from mvp_player_season
 )
+
 ,mvp_season_id as (
-    
-    select  {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
+        select  {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
             , *
       from rename_columns_mvp_players_stats 
 )
 select * from mvp_season_id
--- select * from rename_columns_mvp_players_stats
