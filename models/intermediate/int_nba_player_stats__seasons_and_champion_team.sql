@@ -1,6 +1,6 @@
 with seasons_nba_champions as (
     select *
-     from {{ ref('stg_nba_player_stats__nba_champions_team')}}
+      from {{ ref('stg_nba_player_stats__nba_champions_team')}}
      where league like 'NBA'
      order by seasons
 )

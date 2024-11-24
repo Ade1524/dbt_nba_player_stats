@@ -55,4 +55,4 @@ with nba_rookies_stats__players as (
 )
 
 select * from rookie_players_stats 
---  where player_id like 'lebron%'
+

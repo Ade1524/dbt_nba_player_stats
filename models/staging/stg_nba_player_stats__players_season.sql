@@ -36,7 +36,6 @@ with nba_player_stats as (
             ,pf::float as personal_fouls_per_game
             ,pts::float as points_per_game
             
-        
         from nba_player_stats
 )
 

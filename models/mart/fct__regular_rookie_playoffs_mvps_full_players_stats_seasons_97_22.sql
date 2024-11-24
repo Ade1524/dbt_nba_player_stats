@@ -31,7 +31,7 @@ with playoffs as (
 )
 ,final_regular as (
 
-   select {{ dbt_utils.generate_surrogate_key(['r.seasons']) }} as dim_season_key
+   select  {{ dbt_utils.generate_surrogate_key(['r.seasons']) }} as dim_season_key
           ,{{ dbt_utils.generate_surrogate_key(['r.player_id', 'r.player_name', 'r.year_of_birth']) }} as dim_player_key
           ,{{ dbt_utils.generate_surrogate_key(['r.teams', 'r.team_name']) }} as dim_team_key
           

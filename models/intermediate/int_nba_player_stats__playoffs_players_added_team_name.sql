@@ -9,9 +9,9 @@ with player_playoffs_stats as (
 , add_teams_name as (
     select nt.team_name
           ,pp.*
-        from player_playoffs_stats pp 
-        left join nba_teams nt 
-        on nt.teams = pp.teams
+      from player_playoffs_stats pp 
+      left join nba_teams nt 
+      on nt.teams = pp.teams
      order by pp.seasons
 )
 

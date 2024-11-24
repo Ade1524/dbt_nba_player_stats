@@ -5,7 +5,7 @@ with player_stats_97_2022 as (
 
 , player_stats_no_tot as (
     select  *
-     from player_stats_97_2022
+      from player_stats_97_2022
      where teams not like 'TOT'
 )
 , nba_teams as (
@@ -15,9 +15,9 @@ with player_stats_97_2022 as (
 , add_teams_name as (
     select pp.*
           ,nt.team_name as team_name
-        from player_stats_no_tot pp 
-        left join nba_teams nt 
-        on pp.teams = nt.teams
+      from player_stats_no_tot pp 
+      left join nba_teams nt 
+      on pp.teams = nt.teams
      
 )
 

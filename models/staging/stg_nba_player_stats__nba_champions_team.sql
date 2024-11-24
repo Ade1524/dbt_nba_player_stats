@@ -2,8 +2,6 @@ with team_champion as (
     select * from {{ ref('nba_champions')}}
 )
 
--- select * from team_champion
-
 , renaming_champions_columns as (
     select {{ get_season('year') }} as seasons
             ,initcap(lower(champion)) as champion_team

@@ -13,4 +13,3 @@ with nba_teams_table as (
 
 select * from teams_unique_id
 
--- select * from nba_teams_table

@@ -8,7 +8,7 @@ with nba_playoff_stats__players as (
                 ,pos::varchar(1000) as position
                 ,{{ get_year_of_birth('season', 'age') }} as year_of_birth
                 ,age::int as age
-                ,replace(replace(REPLACE(team_id, 'CHO', 'CHH'), 'BRK', 'BKN'), 'MNL', 'MPL') as teams
+                ,replace(replace(replace(team_id, 'CHO', 'CHH'), 'BRK', 'BKN'), 'MNL', 'MPL') as teams
                 ,g::int as playoff_games_in_season
                 ,gs::int as playoff_games_started_in_season
                 ,mp_per_g::float as minutes_played_per_game

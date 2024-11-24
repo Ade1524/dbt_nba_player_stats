@@ -1,4 +1,4 @@
-with players_rookie as (
+with players_stats_97_22_rookie_year as (
     select * 
      from {{ ref('int_nba_player_stats__player_stats_97_22_and_rookie_players_names') }}
 )
@@ -8,7 +8,7 @@ with players_rookie as (
 )
 , rookie_playoffs_players as (
     select *
-     from players_rookie
+     from players_stats_97_22_rookie_year
      union
     select *
       from playoffs_players
