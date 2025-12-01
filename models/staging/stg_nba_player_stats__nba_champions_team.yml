@@ -1,0 +1,23 @@
+version: 2
+
+models:
+
+  # 1️⃣ Staging model: Champions & Runner-Up Teams
+  - name: stg_nba_player_stats__nba_champions_team
+    description: "NBA champion and runner-up teams by season from 1947 to 2023."
+    columns:
+      - name: seasons
+        description: "{{ doc('seasons') }}"
+        tests:
+          - not_null
+
+      - name: champion_team
+        description: "Name of the team that won the championship."
+        tests:
+          - not_null
+
+      - name: runner_up__team
+        description: "Name of the team that lost in the finals."
+
+      - name: league
+        description: "League of the finals match (NBA, BAA in early years, etc)."

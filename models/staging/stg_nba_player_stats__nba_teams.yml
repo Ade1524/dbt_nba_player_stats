@@ -1,0 +1,15 @@
+version: 2
+
+models:
+
+  # 2️⃣ Staging model: Active & Inactive NBA Teams
+  - name: stg_nba_player_stats__nba_teams
+    description: "NBA teams including active and inactive status."
+    columns:
+      - name: teams
+        description: "Team abbreviation or code (e.g., LAL, CHI)."
+
+      - name: team_name
+        description: "Full official name of the NBA team."
+        tests:
+          - not_null

@@ -1,15 +1,20 @@
-with new_dim_season as (
-    SELECT
-    *, -- Selects all existing columns first
-    
-    -- Use the existing macro for the first year
-    {{ extract_season_start_year('seasons') }} AS season_start_year, -- Result: 1949 (INTEGER)
-    
-    -- Use the new macro for the second year
-    {{ extract_season_end_year('seasons') }} AS season_end_year      -- Result: 1950 (INTEGER)
+-- 2️⃣ How has championship dominance shifted across decades (1940s → 2020s)?
 
-FROM
-    {{ ref('dim_nba_seasons') }}
+with dim_teams as (
+    select *
+    from {{ ref('dim_nba_seasons') }}
+)
+
+
+,new_dim_season as (
+    select
+        *, -- Selects all existing columns first
+    -- Use the existing macro for the first year
+        {{ extract_season_start_year('seasons') }} AS season_start_year, -- Result: 1949 (INTEGER)
+    -- Use the new macro for the second year
+        {{ extract_season_end_year('seasons') }} AS season_end_year      -- Result: 1950 (INTEGER)
+    from
+    dim_teams
 )
 
 ,decade_map as (
