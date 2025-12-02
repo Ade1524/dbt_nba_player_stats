@@ -1,0 +1,136 @@
+version: 2
+
+models:
+  # 2️⃣ Player playoff career stats
+  - name: stg_nba_player_stats__players_playoff
+    description: "NBA playoff player statistics from 1950 to 2022 including advanced performance metrics."
+    columns:
+      - name: player_id
+        description: "Unique identifier for NBA player."
+        tests: [not_null]
+
+      - name: seasons
+        description: "Season range or playoff year label."
+        tests: [not_null]
+
+      - name: player_name
+        description: "Player full name."
+        tests: [not_null]
+
+      - name: position
+        description: "Primary playing position in playoffs."
+
+      - name: year_of_birth
+        description: "Year the player was born."
+
+      - name: age
+        description: "Age in the playoff season."
+
+      - name: teams
+        description: "Team abbreviation or code."
+
+      - name: playoff_games_in_season
+        description: "Total playoff games played that season."
+        tests: [not_null]
+
+      - name: playoff_games_started_in_season
+        description: "Total playoff games started."
+
+      - name: minutes_played_per_game
+        description: "Average minutes played per playoff game."
+
+      - name: field_goals_per_game
+        description: "Field goals made per game."
+
+      - name: field_goal_attempts_per_game
+        description: "Field goal attempts per game."
+
+      - name: field_goal_percentage
+        description: "FG% in playoffs."
+
+      - name: a_3_point_field_goals_per_game
+        description: "3P made per game."
+
+      - name: a_3_point_field_goal_attempts_per_game
+        description: "3P attempts per game."
+
+      - name: a_3_point_field_goal_percentage
+        description: "3P% in playoffs."
+
+      - name: effective_field_goal_percentage
+        description: "eFG% in playoffs."
+
+      - name: free_throws_per_game
+        description: "Free throws made per game."
+
+      - name: free_throw_attempts_per_game
+        description: "Free throw attempts per game."
+
+      - name: free_throw_percentage
+        description: "FT% in playoffs."
+
+      - name: offensive_rebounds_per_game
+        description: "OREB per game."
+
+      - name: defensive_rebounds_per_game
+        description: "DREB per game."
+
+      - name: total_rebounds_per_game
+        description: "Total rebounds per playoff game."
+
+      - name: assists_per_game
+        description: "Assists per playoff game."
+
+      - name: steals_per_game
+        description: "Steals per playoff game."
+
+      - name: blocks_per_game
+        description: "Blocks per playoff game."
+
+      - name: turnovers_per_game
+        description: "Turnovers per game."
+
+      - name: points
+        description: "Total playoff points scored that season."
+
+      - name: player_efficiency_rating
+        description: "PER metric in playoffs."
+
+      - name: box_plus_minus
+        description: "BPM in playoffs."
+
+      - name: defensive_win_share
+        description: "Defensive win share in playoffs."
+
+      - name: player_efficiency_rating
+        description: "PER rating for playoff run."
+
+      - name: usage_percentage
+        description: "Player usage % in playoffs."
+
+      - name: value_over_replacement_player
+        description: "VORP metric for playoffs."
+
+      - name: win_share
+        description: "Total playoff win shares."
+
+      - name: win_share_per_48_games
+        description: "WS/48 in playoffs."
+
+      - name: value_over_replacement_player
+        description: "VORP overall value."
+
+      - name: true_shooting_percentage
+        description: "True shooting % in playoffs."
+
+      - name: usage_percentage
+        description: "Usage % in playoffs."
+
+      - name: value_over_replacement_player
+        description: "VORP metric."
+
+      - name: win_share
+        description: "Total playoffs win share."
+
+      - name: win_share_per_48_games
+        description: "Win share normalized per 48 mins."

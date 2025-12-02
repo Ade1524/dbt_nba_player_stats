@@ -28,6 +28,6 @@ with mvp_player_season as (
 ,mvp_season_id as (
         select  {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
             , *
-      from rename_columns_mvp_players_stats 
+        from rename_columns_mvp_players_stats 
 )
 select * from mvp_season_id

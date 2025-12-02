@@ -1,0 +1,15 @@
+version: 2
+
+models:
+
+  # 2️⃣ Staging model: Active & Inactive NBA Teams
+  - name: stg_nba_player_stats__nba_teams
+    description: "NBA teams including active and inactive status."
+    columns:
+      - name: teams
+        description: "{{ doc('teams') }}"
+
+      - name: team_name
+        description:  "{{ doc('team_name') }}"
+        tests:
+          - not_null

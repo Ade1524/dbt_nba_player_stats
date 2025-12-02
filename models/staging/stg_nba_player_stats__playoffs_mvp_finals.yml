@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: stg_nba_player_stats__playoffs_mvp_finals
+    description: "Performance of ﹡players who won Finals MVP﹡ in their playoff run."
+    columns:
+      - name: player_id
+        description: "Unique Finals MVP player ID."
+        tests: 
+        - not_null
+
+      - name: seasons
+        description: "Season of Finals MVP (ex: 2022-23)."
+        tests: 
+        - not_null
+
+      - name: league
+        description: "League of the Finals MVP season."
+
+      - name: player_name
+        description: "Finals MVP player name."
+        tests: 
+        - not_null
+
+      - name: year_of_birth
+        description: "Birth year."
+
+      - name: age
+        description: "Age during Finals MVP run."
+
+      - name: teams
+        description: "Team abbreviation for Finals MVP season."
+        tests: 
+        - not_null
+
+      - name: games
+        description: "Total playoff games in that postseason MVP run."
+
+      - name: minutes_played_per_game
+        description: "Avg minutes per playoff game."
+
+      - name: points_per_game
+        description: "Avg playoff points."
+        tests: 
+        - not_null
+
+      - name: total_rebounds_per_game
+        description: "Avg playoff rebounds."
+
+      - name: assists_per_game
+        description: "Avg playoff assists."
+
+      - name: steals_per_game
+        description: "Avg steals."
+
+      - name: blocks_per_game
+        description: "Avg blocks."
+
+      - name: field_goal_percentage
+        description: "Playoff FG%."
+
+      - name: c_3_point_field_goal_percentage
+        description: "Playoff 3PT%."
+
+      - name: free_throw_percentage
+        description: "Playoff FT%."
+

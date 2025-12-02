@@ -6,5 +6,5 @@ models:
     description: This is an report model where we joined the dimension and the fact model.
     columns:
       - name: player_id
-        description: This is the unique id for each player by combining player name and the year of birth.
+        description: This model serves as the Mart/Consumption Layer, integrating data from the Fact Table (measures) and Dimension Tables (context) to support end-user reporting and analysis.
        

@@ -10,15 +10,26 @@ with seasons_nba_champions as (
       from {{ ref('stg_nba_player_stats__nba_teams')}}
 )
 
-,seasons_champion_teams as (
-    select sn.seasons
-          ,sn.champion_team as champions
-          ,lt.teams
+
+,final_season as (
+    Select
+        sn.seasons,
+        sc.teams,
+        sc.team_name as champions,
+        sr.team_name as runner_up
      from seasons_nba_champions sn
-     left join list_teams lt
-     on sn.champion_team = lt.team_name
+     join list_teams sc on sn.champion_team = sc.team_name
+     join list_teams sr on sn.runner_up__team = sr.team_name
      order by  sn.seasons
-    
+
 )
 
-select * from seasons_champion_teams
+select 
+    distinct seasons,
+    teams,
+    champions,
+    runner_up
+--    count(seasons)
+from final_season
+-- group by seasons
+order by seasons

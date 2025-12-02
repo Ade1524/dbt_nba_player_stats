@@ -1,0 +1,138 @@
+version: 2
+
+models:
+  # 1️⃣ Rookie stats from 1980 to 2023
+  - name: stg_nba_player_stats__nba_total_rookies_stats_1980_2023
+    description: Rookie season stats for NBA players from 1980 to 2023 including team performance and rookie of the year voting context.
+    columns:
+      - name: player_id
+        description: "{{ doc('player_id') }}"
+        tests: 
+          - not_null
+          -  unique]
+
+      - name: id
+        description: "Alternate numeric player identifier."
+
+      - name: seasons
+        description: "Season range or label."
+        tests: [not_null]
+
+      - name: player_name
+        description: "Full name of the rookie player."
+        tests: [not_null]
+
+      - name: year_of_birth
+        description: "Year the player was born."
+
+      - name: teams
+        description: "Team abbreviation or code."
+
+      - name: teams_name
+        description: "Full name of the team during rookie season."
+
+      - name: age
+        description: "Age of player during the rookie season."
+
+      - name: years_in_the_league
+        description: "Years since player has entered the league (0 for rookie)."
+
+      - name: games_played
+        description: "Total games played in rookie season."
+        tests: [not_null]
+
+      - name: minutes_played
+        description: "Total minutes played in rookie season."
+
+      - name: field_goals
+        description: "Total field goals made."
+
+      - name: field_goals_attempted
+        description: "Total field goals attempted."
+
+      - name: c_3_pointers
+        description: "3-point shots made."
+
+      - name: c_3_points_attempted
+        description: "3-point shots attempted."
+
+      - name: free_throws
+        description: "Free throws made."
+
+      - name: free_throws_attempted
+        description: "Free throws attempted."
+
+      - name: offensive_rebound
+        description: "Total offensive rebounds."
+
+      - name: true_rebound
+        description: "Total rebounds (alternate naming field)." 
+
+      - name: rebounds_per_game
+        description: "Average rebounds per game."
+
+      - name: assists
+        description: "Total assists."
+
+      - name: steals
+        description: "Total steals."
+
+      - name: blocks
+        description: "Total blocks."
+
+      - name: turnovers
+        description: "Total turnovers."
+
+      - name: personal_fouls
+        description: "Total personal fouls."
+
+      - name: points
+        description: "Total points during the rookie season."
+
+      - name: c_field_goal_percentage
+        description: "Field goal percentage."
+
+      - name: c_3p_point_percentage
+        description: "3-point percentage."
+
+      - name: free_throw_percentage
+        description: "Free throw percentage."
+
+      - name: minutes_per_game
+        description: "Minutes averaged per game."
+
+      - name: points_per_game
+        description: "Points averaged per game."
+
+      - name: assists_per_game
+        description: "Assists averaged per game."
+
+      - name: roty_points_won
+        description: "Rookie of the year voting points received."
+
+      - name: max_amount_of_points_you_can_win
+        description: "Maximum possible rookie voting points."
+
+      - name: pts_won_vs_pts_max
+        description: "Ratio of rookie voting points won vs max."
+
+      - name: win_total_during_the_season
+        description: "Team total wins in that season."
+
+      - name: lose_total_during_the_season
+        description: "Team total losses in that season."
+
+      - name: win_loss_percentage
+        description: "Team win/loss percentage."
+
+      - name: team_games_behind
+        description: "Games behind 1st seed."
+
+      - name: points_per_game_in_the_team
+        description: "Team points per game average."
+
+      - name: opponents_points_per_game
+        description: "Opponent average points per game."
+
+      - name: simple_rating_system
+        description: "SRS rating for team that season."

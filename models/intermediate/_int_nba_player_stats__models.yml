@@ -4,35 +4,35 @@ version: 2
 models:
 
   - name: int_nba_player_stats__players_97_22_with_added_team_name_column
-    description: This is an intermediate model where we the team full name for each player in the player_97_22 stats table.
+    description: This Intermediate Model (int) performs a lookup or enrichment JOIN to associate the full team name with each player record in the stg_player_stats_97_22 model, based on a team identifier key.
     columns:
       - name: player_id
         description: This is the unique id for each player by combining player name and the year of birth.
         
 
   - name: int_nba_player_stats__all_players_season_97_22_and_rookies_and_playoffs
-    description: This is an intermediate model where we combined and select the players from the stats table 'int_nba_player_stats__player_stats_97_22_and_rookie_players_names' and the players playoffs table.
+    description: This Intermediate Model (int) consolidates and harmonizes player-level data by performing a UNION ALL between the int_nba_player_stats__player_stats_97_22_and_rookie_players_names dataset and the dedicated int_nba_player_stats__players_playoffs source to establish a comprehensive entity list.
     columns:
       - name: player_id
         description: This is the unique id for each player by combining player name and the year of birth.
 
 
   - name: int_nba_player_stats__player_stats_97_22_and_rookie_players_names
-    description: This is an intermediate model where we combined and select the players from the stats table 97-22 and rookie table.
+    description: This Intermediate Model (int) aggregates and harmonizes the baseline player statistics by performing a UNION ALL operation on the stg_player_stats_97_22 and stg_rookie_players datasets.
     columns:
       - name: player_id
         description: This is the unique id for each player by combining player name and the year of birth.
 
 
   - name: int_nba_player_stats__players_playoffs
-    description: This is an intermediate model where we select the players from the playoffs table.
+    description: This Staging Model (stg) / Intermediate Model (int) is responsible for the initial data selection and cleansing of raw player records sourced from the dedicated playoffs table.
     columns:
       - name: player_id
         description: This is the unique id for each player by combining player name and the year of birth.
 
              
   - name: int_nba_player_stats__seasons_and_champion_team
-    description: This is an intermediate model where each row is a season and the nba champion team.
+    description: This Staging Model (stg) / Intermediate Model (int) defines a unique record for each completed NBA season, explicitly identifying the corresponding NBA Champion team.
     columns:
       - name: seasons
         description: This is the columns where each row represent each season.
@@ -41,7 +41,7 @@ models:
           - not_null
 
   - name: int_nba_player_stats__playoffs_players_added_team_name
-    description: This is an intermediate model where we add the team name column to the playoffs table.
+    description: This Intermediate Model (int) enriches the stg_playoffs dataset by performing a dimensional lookup/JOIN to map and append the corresponding team name attribute.
     columns:
       - name: player_id
         description: This is the unique id for each player by combining player name and the year of birth.

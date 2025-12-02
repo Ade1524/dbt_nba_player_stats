@@ -24,7 +24,7 @@ with playoffs_mvp as (
 )
 ,mvp_playoffs_id as (
     select  {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
-            , *
-      from rename_mvp_column
+            ,*
+    from rename_mvp_column
 )
 select * from mvp_playoffs_id

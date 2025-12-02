@@ -42,7 +42,7 @@ with nba_player_stats as (
 ,players_stats_per_season as (
     select  {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
             , *
-      from rename_player_stats_columns
+    from rename_player_stats_columns
 )
 
 select * from players_stats_per_season
