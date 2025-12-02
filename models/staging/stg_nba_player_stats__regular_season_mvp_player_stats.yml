@@ -1,0 +1,72 @@
+version: 2
+
+models:
+  - name: stg_nba_player_stats__regular_season_mvp_player_stats
+    description: "Resume of players who won season MVP, including performance, efficiency, and voting."
+    columns:
+      - name: player_id
+        description: "Unique season MVP player ID."
+        tests: 
+        - not_null
+
+      - name: seasons
+        description: "Season of MVP award."
+        tests: 
+        - not_null
+
+      - name: league
+        description: "League of the MVP season."
+
+      - name: player_name
+        description: "Name of season MVP player."
+        tests: 
+        - not_null
+
+      - name: year_of_birth
+        description: "Birth year."
+
+      - name: age
+        description: "Age during MVP season."
+
+      - name: teams
+        description: "Team abbreviation during MVP season."
+        tests: 
+        - not_null
+
+      - name: games
+        description: "Games played that MVP season."
+
+      - name: minutes_played_per_games
+        description: "Avg minutes per regular season game."
+
+      - name: points_per_game
+        description: "Avg points."
+
+      - name: total_rebounds_per_game
+        description: "Avg rebounds."
+
+      - name: assists_per_game
+        description: "Avg assists."
+
+      - name: steals_per_game
+        description: "Avg steals."
+
+      - name: blocks_per_game
+        description: "Avg blocks."
+
+      - name: field_goal_percentage
+        description: "Season FG%."
+
+      - name: free_throw_percentage
+        description: "Season FT%."
+
+      - name: win_share
+        description: "Total Win Shares in MVP season."
+
+      - name: win_share_per_48_games
+        description: "Win share normalized per 48 minutes."
+
+      - name: voting
+        description: "Voting result or ranking context."
+        tests: 
+        - not_null

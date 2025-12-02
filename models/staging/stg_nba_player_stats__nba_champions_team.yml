@@ -12,12 +12,12 @@ models:
           - not_null
 
       - name: champion_team
-        description: "Name of the team that won the championship."
+        description: "{{ doc('champion_team') }}"
         tests:
           - not_null
 
       - name: runner_up__team
-        description: "Name of the team that lost in the finals."
+        description: "{{ doc('runner_up__team') }}"
 
       - name: league
         description: "League of the finals match (NBA, BAA in early years, etc)."

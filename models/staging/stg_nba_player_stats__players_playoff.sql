@@ -62,8 +62,8 @@ with nba_playoff_stats__players as (
 ,playoff_players_stats as (
     select  {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
             , *
-      from renaming_playoff_players_columns
-      order by seasons
+    from renaming_playoff_players_columns
+    order by seasons
 )
 
 select * from playoff_players_stats

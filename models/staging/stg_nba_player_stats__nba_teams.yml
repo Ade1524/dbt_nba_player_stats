@@ -7,9 +7,9 @@ models:
     description: "NBA teams including active and inactive status."
     columns:
       - name: teams
-        description: "Team abbreviation or code (e.g., LAL, CHI)."
+        description: "{{ doc('teams') }}"
 
       - name: team_name
-        description: "Full official name of the NBA team."
+        description:  "{{ doc('team_name') }}"
         tests:
           - not_null

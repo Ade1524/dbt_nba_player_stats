@@ -1,0 +1,116 @@
+version: 2
+
+models:
+  - name: stg_nba_player_stats__players_season
+    description: "NBA regular season player per-game stats by team and season."
+    columns:
+      - name: player_id
+        description: "Unique player ID."
+        tests: 
+        - not_null
+
+      - name: rank_id
+        description: "Rank from source dataset."
+
+      - name: seasons
+        description: "Season label (ex: 1997-98)."
+        tests: 
+        - not_null
+
+      - name: player_name
+        description: "Full player name."
+        tests: 
+        - not_null
+
+      - name: year_of_birth
+        description: "Player birth year."
+
+      - name: position
+        description: "Primary season position."
+        tests: 
+        - not_null
+
+      - name: age
+        description: "Player age in that season."
+
+      - name: teams
+        description: "Team abbreviation (ex: LAL, BOS)."
+        tests: 
+        - not_null
+
+      - name: games
+        description: "Total games played that season."
+
+      - name: games_started
+        description: "Total games started."
+
+      - name: minutes_played_per_game
+        description: "Average minutes played per game."
+
+      - name: field_goals_per_game
+        description: "Avg field goals made per game."
+
+      - name: field_goal_attempts_per_game
+        description: "Avg FG attempts per game."
+
+      - name: field_goal_percentage
+        description: "Season FG%."
+
+      - name: c_3_point_field_goals_per_game
+        description: "Avg 3PT made per game."
+
+      - name: c_3_point_field_goal_attempts_per_game
+        description: "Avg 3PT attempts per game."
+
+      - name: c_3_point_field_goal_percentage
+        description: "3-point shooting %."
+
+      - name: c_2_point_field_goals_per_game
+        description: "Avg 2PT made per game."
+
+      - name: c_2_point_field_goal_attempts_per_game
+        description: "Avg 2PT attempts per game."
+
+      - name: c_2_point_field_goal_percentage
+        description: "2-point shooting %."
+
+      - name: effective_field_goal_percentage
+        description: "eFG% for that season."
+
+      - name: free_throws_per_game
+        description: "Avg FT made per game."
+
+      - name: free_throw_attempts_per_game
+        description: "Avg FT attempts per game."
+
+      - name: free_throw_percentage
+        description: "Season FT%."
+
+      - name: offensive_rebounds_per_game
+        description: "Avg offensive rebounds."
+
+      - name: defensive_rebounds_per_game
+        description: "Avg defensive rebounds."
+
+      - name: total_rebounds_per_game
+        description: "Avg total rebounds."
+
+      - name: assists_per_game
+        description: "Avg assists."
+
+      - name: steals_per_game
+        description: "Avg steals."
+
+      - name: blocks_per_game
+        description: "Avg blocks."
+
+      - name: turnovers_per_game
+        description: "Avg turnovers."
+
+      - name: personal_fouls_per_game
+        description: "Avg personal fouls."
+
+      - name: points_per_game
+        description: "Avg points."
+        tests: 
+        - not_null
