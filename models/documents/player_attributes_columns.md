@@ -8,7 +8,7 @@
 
 {% docs player_id %} Unique identifier for the NBA player. {% enddocs %}
 {% docs player_name %} Full player name. {% enddocs %}
-{% docs year_of_birth %} Player birth year. {% enddocs %}
+{% docs year_of_birth %} Birth year of the player used to generate player_id. {% enddocs %}
 {% docs position %} Primary season position. {% enddocs %}
 {% docs age %} Player age in that season. {% enddocs %}
 

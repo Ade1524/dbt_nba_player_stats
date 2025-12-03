@@ -1,9 +1,11 @@
 with nba_player_stats as (
-    select * from {{ ref('nba_player_stats')}}
+    select * 
+    from {{ ref('nba_player_stats')}}
 )
 
 , rename_player_stats_columns as (
-      select rk as rank_id
+      select 
+             rk as rank_id
             ,year::varchar(1000) as seasons
             ,{{ clean_player_name('player') }} as player_name
             ,substring(year,1,4)::int - age as year_of_birth
@@ -34,18 +36,19 @@ with nba_player_stats as (
             ,blk::float as blocks_per_game
             ,tov::float as turnovers_per_game
             ,pf::float as personal_fouls_per_game
-            ,pts::float as points_per_game
-            
+            ,pts::float as points_per_game          
         from nba_player_stats
 )
 
 ,players_stats_per_season as (
-    select  {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
+    select  
+             {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
             , *
     from rename_player_stats_columns
 )
 
-select * from players_stats_per_season
+select * 
+from players_stats_per_season
 
 
 

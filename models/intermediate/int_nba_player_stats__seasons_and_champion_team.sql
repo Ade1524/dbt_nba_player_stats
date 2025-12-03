@@ -1,13 +1,13 @@
 with seasons_nba_champions as (
     select *
-      from {{ ref('stg_nba_player_stats__nba_champions_team')}}
-     where league like 'NBA'
-     order by seasons
+    from {{ ref('stg_nba_player_stats__nba_champions_team')}}
+    where league like 'NBA'
+    order by seasons
 )
 
 ,list_teams as (
     select *
-      from {{ ref('stg_nba_player_stats__nba_teams')}}
+    from {{ ref('stg_nba_player_stats__nba_teams')}}
 )
 
 
@@ -17,10 +17,10 @@ with seasons_nba_champions as (
         sc.teams,
         sc.team_name as champions,
         sr.team_name as runner_up
-     from seasons_nba_champions sn
-     join list_teams sc on sn.champion_team = sc.team_name
-     join list_teams sr on sn.runner_up__team = sr.team_name
-     order by  sn.seasons
+    from seasons_nba_champions sn
+    join list_teams sc on sn.champion_team = sc.team_name
+    join list_teams sr on sn.runner_up__team = sr.team_name
+    order by  sn.seasons
 
 )
 
@@ -29,7 +29,5 @@ select
     teams,
     champions,
     runner_up
---    count(seasons)
 from final_season
--- group by seasons
 order by seasons

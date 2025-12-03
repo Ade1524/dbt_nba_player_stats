@@ -1,0 +1,190 @@
+version: 2
+
+models:
+  - name: int_nba_player_stats__playoffs_players_added_team_name
+    description: 
+      Intermediate model containing enriched playoff statistics from 1997–2022 including total minutes,
+      advanced percentages, win shares, and full team names.
+
+    columns:
+      - name: player_id
+        description: "{{ doc('player_id') }}"
+        tests: 
+        - not_null 
+        - unique
+
+      - name: seasons
+        description: "{{ doc('seasons') }}"
+        tests: 
+        - not_null
+
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests: 
+        - not_null
+
+      - name: year_of_birth
+        description: "{{ doc('year_of_birth') }}"
+        tests: 
+        - not_null
+
+      - name: position
+        description: "{{ doc('position') }}"
+        tests:
+          - not_null          
+          - accepted_values:
+              values: ['PG','SG','SF','PF','C','G','F','GF','FC']
+              quote: true
+
+      - name: age
+        description: "{{ doc('age') }}"
+        tests: 
+        - not_null
+
+      - name: teams
+        description: "{{ doc('teams') }}"
+        tests: 
+        - not_null
+
+      - name: team_name
+        description: "{{ doc('team_name') }}"
+        tests: 
+        - not_null
+
+      - name: playoff_games_in_season
+        description: "Total playoff games played."
+
+      - name: playoff_games_started_in_season
+        description: "Total playoff games started."
+
+      - name: minutes_played_per_game
+        description: "Average playoff minutes per game."
+
+      - name: field_goals_per_game
+        description: "Average field goals made per game."
+
+      - name: field_goal_attempts_per_game
+        description: "Average field goal attempts per game."
+
+      - name: field_goal_percentage
+        description: "Field goal percentage (FG%)."
+
+      - name: a_3_point_field_goals_per_game
+        description: "Average 3-point shots made per playoff game."
+
+      - name: a_3_point_field_goal_attempts_per_game
+        description: "Average 3-point shots attempted per playoff game."
+
+      - name: a_3_point_field_goal_percentage
+        description: "3-point percentage."
+
+      - name: a_2_point_field_goals_per_game
+        description: "Average 2-point field goals made."
+
+      - name: a_2_point_field_goal_attempts_per_game
+        description: "Average 2-point field goals attempted."
+
+      - name: a_2_point_field_goal_percentage
+        description: "2-point percentage."
+
+      - name: effective_field_goal_percentage
+        description: "Effective field goal percentage."
+
+      - name: free_throws_per_game
+        description: "Average free throws made per playoff game."
+
+      - name: free_throw_attempts_per_game
+        description: "Average free throws attempted."
+
+      - name: free_throw_percentage
+        description: "Free throw percentage (FT%)."
+
+      - name: offensive_rebounds_per_game
+        description: "Average offensive rebounds."
+
+      - name: defensive_rebounds_per_game
+        description: "Average defensive rebounds."
+
+      - name: total_rebounds_per_game
+        description: "Total rebounds per game."
+
+      - name: assists_per_game
+        description: "Assists per game."
+        tests: 
+        - not_null
+
+      - name: steals_per_game
+        description: "Steals per game."
+
+      - name: blocks_per_game
+        description: "Blocks per game."
+
+      - name: turnovers_per_game
+        description: "Turnovers per game."
+        tests: 
+        - not_null
+
+      - name: personal_fouls_per_game
+        description: "Personal fouls per game."
+
+      - name: points
+        description: "Points scored in playoff games."
+
+      - name: assist_percentage
+        description: "Assist percentage (AST%)."
+
+      - name: block_percentage
+        description: "Block percentage."
+
+      - name: box_plus_minus
+        description: "BPM metric."
+
+      - name: defensive_box_plus_minus
+        description: "DBPM metric."
+
+      - name: defensive_rebounding_percentage
+        description: "Defensive rebound percentage."
+
+      - name: defensive_win_share
+        description: "Defensive Win Share metric."
+
+      - name: defensive_box_plus_minus
+
+      - name: total_minutes_played
+        description: "Total minutes played in playoffs."
+
+      - name: offensive_box_plus_minus
+        description: "OBPM metric."
+
+      - name: offensive_rebounding_percentage
+        description: "Offensive rebound percentage."
+
+      - name: offensive_win_share
+        description: "Offensive Win Share."
+
+      - name: player_efficiency_rating
+        description: "PER metric."
+
+      - name: steal_percentage
+        description: "Steal percentage."
+
+      - name: turnover_percentage
+        description: "Turnover percentage."
+
+      - name: total_rebound_percentage
+        description: "Rebound percentage contribution."
+
+      - name: true_shooting_percentage
+        description: "TS% metric."
+
+      - name: usage_percentage
+        description: "USG% metric."
+
+      - name: value_over_replacement_player
+        description: "VORP metric."
+
+      - name: win_share
+        description: "Total win share contribution."
+
+      - name: win_share_per_48_games
+        description: "Win share per 48 minutes."
