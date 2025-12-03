@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: int_nba_player_stats__seasons_and_champion_team
+    description: Intermediate model mapping NBA seasons to champion, runner-up, and team list.
+
+    columns:
+      - name: seasons
+        description: "{{ doc('seasons') }}"
+        tests: 
+        - not_null 
+        - unique
+
+      - name: teams
+        description: "{{ doc('teams') }}"
+        tests: 
+        - not_null
+
+      - name: champions
+        description: "{{ doc('champion_team') }}"
+        tests: 
+        - not_null
+
+      - name: runner_up
+        description: "{{ doc('runner_up__team') }}"
+        tests: 
+        - not_null

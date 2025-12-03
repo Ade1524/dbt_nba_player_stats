@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: int_nba_player_stats__player_stats_97_22_and_rookie_players_names
+    description: "Intermediate table unifying regular season players (1997–2022) with rookies (1980–2023) and generating a globally unique player_id based on name + year of birth."
+
+    columns:
+      - name: player_id
+        description: "Globally unique player identifier created by combining player_name and year_of_birth."
+        tests:
+          - not_null
+          - unique
+
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests:
+          - not_null
+
+      - name: year_of_birth
+        description: "{{ doc('year_of_birth') }}"
+        tests:
+          - not_null
