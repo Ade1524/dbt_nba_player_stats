@@ -1,10 +1,11 @@
 with playoffs_mvp as (
     select *
-       from {{ ref('nba_finals_mvp') }}
-     order by season
+    from {{ ref('nba_finals_mvp') }}
+    order by season
 )
 , rename_mvp_column as (
-    select concat((substring(season,1,4))::varchar,'-',(substring(season,1,4)::int + 1)::varchar) as seasons
+    select 
+           concat((substring(season,1,4))::varchar,'-',(substring(season,1,4)::int + 1)::varchar) as seasons
           ,lg as league
           ,replace(player, '-', ' ')::varchar(1000) as player_name
           ,substring(season,1,4)::int - age as year_of_birth
@@ -20,11 +21,16 @@ with playoffs_mvp as (
           ,fg_pct::float as field_goal_percentage
           ,c_3p_pct::float as c_3_point_field_goal_percentage
           ,ft_pct::float as free_throw_percentage
-      from playoffs_mvp
+    from playoffs_mvp
 )
+
 ,mvp_playoffs_id as (
-    select  {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
+    select 
+             {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
             ,*
     from rename_mvp_column
 )
-select * from mvp_playoffs_id
+
+
+select * 
+from mvp_playoffs_id
