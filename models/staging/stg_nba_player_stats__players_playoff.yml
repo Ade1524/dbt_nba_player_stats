@@ -6,32 +6,36 @@ models:
     description: "NBA playoff player statistics from 1950 to 2022 including advanced performance metrics."
     columns:
       - name: player_id
-        description: "Unique identifier for NBA player."
-        tests: [not_null]
+        description:  "{{ doc('player_id') }}"
+        tests: 
+        - not_null
 
       - name: seasons
-        description: "Season range or playoff year label."
-        tests: [not_null]
+        description: "{{ doc('seasons') }}"
+        tests: 
+        - not_null
 
       - name: player_name
-        description: "Player full name."
-        tests: [not_null]
+        description: "{{ doc('player_name') }}"
+        tests: 
+        - not_null
 
       - name: position
-        description: "Primary playing position in playoffs."
+        description: "{{ doc('position') }}"
 
       - name: year_of_birth
-        description: "Year the player was born."
+        description: "{{ doc('year_of_birth') }}"
 
       - name: age
-        description: "Age in the playoff season."
+        description: "{{ doc('age') }}"
 
       - name: teams
-        description: "Team abbreviation or code."
+        description: "{{ doc('teams') }}"
 
       - name: playoff_games_in_season
         description: "Total playoff games played that season."
-        tests: [not_null]
+        tests: 
+        - not_null
 
       - name: playoff_games_started_in_season
         description: "Total playoff games started."
