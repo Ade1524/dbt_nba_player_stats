@@ -5,7 +5,7 @@ models:
     description: "NBA regular season player per-game stats by team and season."
     columns:
       - name: player_id
-        description: "Unique player ID."
+        description: "{{ doc('player_id') }}"
         tests: 
         - not_null
 
@@ -13,28 +13,28 @@ models:
         description: "Rank from source dataset."
 
       - name: seasons
-        description: "Season label (ex: 1997-98)."
+        description: "{{ doc('seasons') }}"
         tests: 
         - not_null
 
       - name: player_name
-        description: "Full player name."
+        description: "{{ doc('player_name') }}"
         tests: 
         - not_null
 
       - name: year_of_birth
-        description: "Player birth year."
+        description: "{{ doc('year_of_birth') }}"
 
       - name: position
-        description: "Primary season position."
+        description: "{{ doc('position') }}"
         tests: 
         - not_null
 
       - name: age
-        description: "Player age in that season."
+        description: "{{ doc('age') }}"
 
       - name: teams
-        description: "Team abbreviation (ex: LAL, BOS)."
+        description: "{{ doc('teams') }}"
         tests: 
         - not_null
 

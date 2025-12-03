@@ -5,12 +5,12 @@ models:
     description: "Performance of ﹡players who won Finals MVP﹡ in their playoff run."
     columns:
       - name: player_id
-        description: "Unique Finals MVP player ID."
+        description: "{{ doc('player_id') }}"
         tests: 
         - not_null
 
       - name: seasons
-        description: "Season of Finals MVP (ex: 2022-23)."
+        description: "Season of Finals MVP."
         tests: 
         - not_null
 
@@ -23,13 +23,13 @@ models:
         - not_null
 
       - name: year_of_birth
-        description: "Birth year."
+        description: "{{ doc('year_of_birth') }}"
 
       - name: age
         description: "Age during Finals MVP run."
 
       - name: teams
-        description: "Team abbreviation for Finals MVP season."
+        description: "{{ doc('teams') }}"
         tests: 
         - not_null
 
