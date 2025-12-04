@@ -1,4 +1,3 @@
-
 -- 1️⃣3️⃣ what stats most strongly predict winning the season mvp?
 
 with player_stats as (
