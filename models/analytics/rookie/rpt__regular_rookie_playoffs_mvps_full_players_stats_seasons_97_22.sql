@@ -1,23 +1,23 @@
 with regular_97_22 as (
     select * 
-        from {{ ref('fct__regular_rookie_playoffs_mvps_full_players_stats_seasons_97_22') }}
+    from {{ ref('fct__regular_rookie_playoffs_mvps_full_players_stats_seasons_97_22') }}
 )
 
-,players as (
+, players as (
     select *    
      from {{ ref('dim_nba_players') }}
 )
 
-,seasons as (
+, seasons as (
     select *    
      from {{ ref('dim_nba_seasons') }}
 )
 
-,teams as (
+, teams as (
     select *    
      from {{ ref('dim_nba_teams') }}
 )
-,final_regular as (
+, final_regular as (
      
      select s.dim_season_key
            ,s.seasons 

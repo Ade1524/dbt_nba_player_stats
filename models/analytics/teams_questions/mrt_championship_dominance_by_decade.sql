@@ -6,7 +6,7 @@ with dim_teams as (
 )
 
 
-,new_dim_season as (
+, new_dim_season as (
     select
         *, -- Selects all existing columns first
     -- Use the existing macro for the first year
@@ -17,7 +17,7 @@ with dim_teams as (
     dim_teams
 )
 
-,decade_map as (
+, decade_map as (
     select
         *,
         case
@@ -32,6 +32,8 @@ with dim_teams as (
         end as decade
     from new_dim_season
 )
+
+
 select
     decade,
     champions as franchise,

@@ -1,0 +1,202 @@
+version: 2
+
+models:
+  - name: fct__regular_rookie_playoffs_mvps_full_players_stats_seasons_97_22
+    description: >
+      Consolidated fact table combining regular season stats, rookies stats, playoffs stats,
+      Finals MVP stats and Regular Season MVP stats from 1997-2022.
+
+    columns:
+      - name: dim_season_key
+        description: "FK to dim_nba_seasons."
+        tests: 
+        - not_null
+        
+
+      - name: dim_player_key
+        description: "FK to dim_nba_players."
+        tests: 
+        - not_null
+        
+
+      - name: dim_team_key
+        description: "FK to dim_nba_teams."
+        tests: 
+        - not_null
+        
+
+      - name: player_id
+        description: "{{ doc('player_id') }}"
+        tests: 
+        - not_null
+        
+
+      - name: seasons
+        description: "{{ doc('dim_season_key') }}"
+        tests: 
+        - not_null
+        
+
+      # REGULAR SEASON METRICS (prefix r_)
+      - name: r_position
+      - name: r_age
+      - name: r_teams
+      - name: r_team_name
+      - name: r_games
+      - name: r_games_started
+      - name: r_minutes_played_per_game
+      - name: r_field_goals_per_game
+      - name: r_field_goal_attempts_per_game
+      - name: r_field_goal_percentage
+      - name: r_c_3_point_field_goals_per_game
+      - name: r_c_3_point_field_goal_attempts_per_game
+      - name: r_c_3_point_field_goal_percentage
+      - name: r_c_2_point_field_goals_per_game
+      - name: r_c_2_point_field_goal_attempts_per_game
+      - name: r_c_2_point_field_goal_percentage
+      - name: r_effective_field_goal_percentage
+      - name: r_free_throws_per_game
+      - name: r_free_throw_attempts_per_game
+      - name: r_free_throw_percentage
+      - name: r_offensive_rebounds_per_game
+      - name: r_defensive_rebounds_per_game
+      - name: r_total_rebounds_per_game
+      - name: r_assists_per_game
+      - name: r_steals_per_game
+      - name: r_blocks_per_game
+      - name: r_turnovers_per_game
+      - name: r_personal_fouls_per_game
+      - name: r_points_per_game
+      - name: num_years_in_league
+
+      # PLAYOFFS METRICS (prefix p_)
+      - name: p_player_name
+      - name: p_seasons
+      - name: p_team_name
+      - name: p_position
+      - name: p_age
+      - name: p_teams
+      - name: p_playoff_games_in_season
+      - name: p_playoff_games_started_in_season
+      - name: p_minutes_played_per_game
+      - name: p_field_goals_per_game
+      - name: p_field_goal_attempts_per_game
+      - name: p_field_goal_percentage
+      - name: p_a_3_point_field_goals_per_game
+      - name: p_a_3_point_field_goal_attempts_per_game
+      - name: p_a_3_point_field_goal_percentage
+      - name: p_a_2_point_field_goals_per_game
+      - name: p_a_2_point_field_goal_attempts_per_game
+      - name: p_a_2_point_field_goal_percentage
+      - name: p_effective_field_goal_percentage
+      - name: p_free_throws_per_game
+      - name: p_free_throw_attempts_per_game
+      - name: p_free_throw_percentage
+      - name: p_offensive_rebounds_per_game
+      - name: p_defensive_rebounds_per_game
+      - name: p_total_rebounds_per_game
+      - name: p_assists_per_game
+      - name: p_steals_per_game
+      - name: p_blocks_per_game
+      - name: p_turnovers_per_game
+      - name: p_personal_fouls_per_game
+      - name: p_points
+      - name: p_assist_percentage
+      - name: p_block_percentage
+      - name: p_box_plus_minus
+      - name: p_defensive_box_plus_minus
+      - name: p_defensive_rebounding_percentage
+      - name: p_defensive_win_share
+      - name: p_a_3_point_shot_attempts_per_field_goal_attempted
+      - name: p_free_throw_attempted_per_field_goal_attempted_percentage
+      - name: p_total_minutes_played
+      - name: p_offensive_box_plus_minus
+      - name: p_offensive_rebounding_percentage
+      - name: p_offensive_win_share
+      - name: p_player_efficiency_rating
+      - name: p_steal_percentage
+      - name: p_turnover_percentage
+      - name: p_total_rebound_percentage
+      - name: p_true_shooting_percentage
+      - name: p_usage_percentage
+      - name: p_value_over_replacement_player
+      - name: p_win_share
+      - name: p_win_share_per_48_games
+
+      # ROOKIE METRICS (prefix ro_)
+      - name: ro_seasons
+      - name: ro_player_name
+      - name: ro_teams
+      - name: ro_teams_name
+      - name: ro_age
+      - name: ro_years_in_the_league
+      - name: ro_games_played
+      - name: ro_minutes_played
+      - name: ro_field_goals
+      - name: ro_field_goals_attempted
+      - name: ro_c_3_pointers
+      - name: ro_c_3_points_attempted
+      - name: ro_free_throws
+      - name: ro_free_throws_attempted
+      - name: ro_offensive_rebound
+      - name: ro_true_rebound
+      - name: ro_assists
+      - name: ro_steals
+      - name: ro_blocks
+      - name: ro_turnovers
+      - name: ro_personal_fouls
+      - name: ro_points
+      - name: ro_c_field_goal_percentage
+      - name: ro_c_3p_point_percentage
+      - name: ro_free_throw_percentage
+      - name: ro_minutes_per_game
+      - name: ro_points_per_game
+      - name: ro_rebounds_per_game
+      - name: ro_assists_per_game
+      - name: ro_roty_points_won
+      - name: ro_max_amount_of_points_you_can_win
+      - name: ro_pts_won_vs_pts_max
+      - name: ro_win_total_during_the_season
+      - name: ro_lose_total_during_the_season
+      - name: ro_win_loss_percentage
+      - name: ro_team_games_behind
+      - name: ro_points_per_game_in_the_team
+      - name: ro_opponents_points_per_game
+      - name: ro_simple_rating_system
+
+      # REGULAR SEASON MVP METRICS (prefix rsm_)
+      - name: rsm_seasons
+      - name: rsm_league
+      - name: rsm_player_name
+      - name: rsm_age
+      - name: rsm_teams
+      - name: rsm_games
+      - name: rsm_minutes_played_per_games
+      - name: rsm_points_per_game
+      - name: rsm_total_rebounds_per_game
+      - name: rsm_assists_per_game
+      - name: rsm_steals_per_game
+      - name: rsm_blocks_per_game
+      - name: rsm_field_goal_percentage
+      - name: rsm_c_3_point_field_goal_percentage
+      - name: rsm_free_throw_percentage
+      - name: rsm_win_share
+      - name: rsm_win_share_per_48_games
+      - name: rsm_voting
+
+      # FINALS MVP METRICS (prefix fm_)
+      - name: fm_seasons
+      - name: fm_league
+      - name: fm_player_name
+      - name: fm_age
+      - name: fm_teams
+      - name: fm_games
+      - name: fm_minutes_played_per_game
+      - name: fm_points_per_game
+      - name: fm_total_rebounds_per_game
+      - name: fm_assists_per_game
+      - name: fm_steals_per_game
+      - name: fm_blocks_per_game
+      - name: fm_field_goal_percentage
+      - name: fm_c_3_point_field_goal_percentage
+      - name: fm_free_throw_percentage

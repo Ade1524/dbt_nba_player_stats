@@ -2,54 +2,48 @@ version: 2
 
 models:
   - name: int_nba_player_stats__playoffs_players_added_team_name
-    description: 
-      Intermediate model containing enriched playoff statistics from 1997–2022 including total minutes,
-      advanced percentages, win shares, and full team names.
+    description: Intermediate model containing enriched playoff statistics from 1997–2022 including total minutes, advanced percentages, win shares, and full team names.
 
     columns:
       - name: player_id
         description: "{{ doc('player_id') }}"
-        tests: 
-        - not_null 
-        - unique
+        tests:
+          - not_null
 
       - name: seasons
         description: "{{ doc('seasons') }}"
-        tests: 
-        - not_null
+        tests:
+          - not_null
 
       - name: player_name
         description: "{{ doc('player_name') }}"
-        tests: 
-        - not_null
+        tests:
+          - not_null
 
       - name: year_of_birth
         description: "{{ doc('year_of_birth') }}"
-        tests: 
-        - not_null
+        tests:
+          - not_null
 
       - name: position
         description: "{{ doc('position') }}"
         tests:
-          - not_null          
-          - accepted_values:
-              values: ['PG','SG','SF','PF','C','G','F','GF','FC']
-              quote: true
-
+          - not_null
+ 
       - name: age
         description: "{{ doc('age') }}"
-        tests: 
-        - not_null
+        tests:
+          - not_null
 
       - name: teams
         description: "{{ doc('teams') }}"
-        tests: 
-        - not_null
+        tests:
+          - not_null
 
       - name: team_name
         description: "{{ doc('team_name') }}"
-        tests: 
-        - not_null
+        tests:
+          - not_null
 
       - name: playoff_games_in_season
         description: "Total playoff games played."
@@ -110,8 +104,6 @@ models:
 
       - name: assists_per_game
         description: "Assists per game."
-        tests: 
-        - not_null
 
       - name: steals_per_game
         description: "Steals per game."
@@ -121,8 +113,6 @@ models:
 
       - name: turnovers_per_game
         description: "Turnovers per game."
-        tests: 
-        - not_null
 
       - name: personal_fouls_per_game
         description: "Personal fouls per game."

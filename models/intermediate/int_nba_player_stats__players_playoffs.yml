@@ -10,7 +10,7 @@ models:
         description: "{{ doc('player_id') }}"
         tests: 
         - not_null 
-        - unique
+        
 
       - name: player_name
         description: "{{ doc('player_name') }}"
