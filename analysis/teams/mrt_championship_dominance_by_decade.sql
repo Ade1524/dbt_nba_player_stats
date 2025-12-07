@@ -40,6 +40,8 @@ select
     count(*) as titles,
     round(count(*) * 100.0 / sum(count(*)) over(partition by decade), 2) as pct_of_decade_titles
 from decade_map
-group by 1, 2
+group by 
+    decade,
+    franchise
 order by decade, titles desc
 
