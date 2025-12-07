@@ -5,7 +5,7 @@ with player_stats as (
     from {{ ref('fct__regular_rookie_playoffs_mvps_full_players_stats_seasons_97_22') }}
 )  
 
-,eliterookies as (
+, eliterookies as (
     select
         ro.ro_player_name,
         ro.ro_seasons,
@@ -17,9 +17,9 @@ with player_stats as (
     order by 
         composite_rookie_score desc
     limit 50 -- select the top 50 statistical rookies
-),
+)
 
-careermvps as (
+, careermvps as (
     select distinct
         rsm.rsm_player_name as mvp_winner
     from  

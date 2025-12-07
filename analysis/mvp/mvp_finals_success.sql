@@ -10,12 +10,12 @@ with player_stats as (
     from {{ ref('dim_nba_seasons') }}
 )
 
-,dim_teams as (
+, dim_teams as (
     select *
     from {{ ref('dim_nba_teams') }}
 )
 
-,mvpseasonsinfo as (
+, mvpseasonsinfo as (
     select
         fm.dim_team_key,
         fm.dim_season_key,
@@ -61,8 +61,7 @@ with player_stats as (
         ,team_name as mvp_team_name
         ,finals_result
     from mvpfinalsresult
-order by  seasons
-
+    order by  seasons
 )
 
 
