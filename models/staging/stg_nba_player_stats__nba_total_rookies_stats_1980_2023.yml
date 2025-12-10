@@ -9,37 +9,40 @@ models:
         description: "{{ doc('player_id') }}"
         tests: 
           - not_null
-          -  unique]
+          -  unique
 
       - name: id
         description: "Alternate numeric player identifier."
 
       - name: seasons
-        description: "Season range or label."
-        tests: [not_null]
+        description: "{{ doc('seasons') }}"
+        tests: 
+        - not_null
 
       - name: player_name
         description: "Full name of the rookie player."
-        tests: [not_null]
+        tests: 
+        - not_null
 
       - name: year_of_birth
-        description: "Year the player was born."
+        description: "{{ doc('year_of_birth') }}"
 
       - name: teams
-        description: "Team abbreviation or code."
+        description: "{{ doc('teams') }}"
 
       - name: teams_name
-        description: "Full name of the team during rookie season."
+        description: "{{ doc('team_name') }}"
 
       - name: age
-        description: "Age of player during the rookie season."
+        description: "{{ doc('age') }}"
 
       - name: years_in_the_league
         description: "Years since player has entered the league (0 for rookie)."
 
       - name: games_played
         description: "Total games played in rookie season."
-        tests: [not_null]
+        tests: 
+        - not_null
 
       - name: minutes_played
         description: "Total minutes played in rookie season."

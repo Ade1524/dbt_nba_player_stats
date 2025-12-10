@@ -5,7 +5,7 @@ with player_stats as (
     from {{ ref('fct__regular_rookie_playoffs_mvps_full_players_stats_seasons_97_22') }}
 )
 
-,mvptypebyyear as (
+, mvptypebyyear as (
     select
         rsm.rsm_player_name as player_name,
         rsm.seasons as seasons,

@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: dim_nba_players
+    description: "Dimension table listing NBA players with surrogate and natural keys."
+
+    columns:
+      - name: dim_player_key
+        description: "{{ doc('dim_player_key') }}"
+        tests: 
+        - not_null 
+        - unique
+
+      - name: player_id
+        description: "{{ doc('player_id') }}"
+        tests: 
+        - not_null 
+        - unique 
+
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests: 
+        - not_null
+
+      - name: year_of_birth
+        description: "{{ doc('year_of_birth') }}"
+        tests: 
+        - not_null

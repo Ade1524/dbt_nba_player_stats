@@ -17,7 +17,7 @@ with player_stats as (
     from player_stats f
     where 
           f.p_playoff_games_in_season > 5
-      and f.r_games > 41
+    and f.r_games > 41
 )
 
 select

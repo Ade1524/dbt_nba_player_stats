@@ -1,9 +1,11 @@
 with nba_rookies_stats__players as (
-    select * from {{ ref('nba_total_rookies_stats_1980_2023')}}
+    select * 
+    from {{ ref('nba_total_rookies_stats_1980_2023')}}
 )
 
 , renaming_columns_rookie_player_stats as (
-        select id::int as id
+        select 
+               id::int as id
               ,{{ get_season('year') }} AS seasons
               ,replace(player, '-', ' ')::varchar(1000) as player_name
               ,{{ get_year_of_birth('year', 'age') }} as year_of_birth
@@ -44,15 +46,16 @@ with nba_rookies_stats__players as (
               ,ps_g::float as points_per_game_in_the_team
               ,pa_g::float as opponents_points_per_game
               ,srs::float as simple_rating_system
-
-         from nba_rookies_stats__players     
+        from nba_rookies_stats__players     
 )
 
 ,rookie_players_stats as (
-    select  {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
+    select  
+             {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
             , *
-      from renaming_columns_rookie_player_stats
+    from renaming_columns_rookie_player_stats
 )
 
-select * from rookie_players_stats 
+select * 
+from rookie_players_stats 
 

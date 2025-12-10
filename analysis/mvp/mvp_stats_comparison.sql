@@ -1,4 +1,3 @@
-
 -- 1️⃣3️⃣ what stats most strongly predict winning the season mvp?
 
 with player_stats as (
@@ -6,7 +5,7 @@ with player_stats as (
     from {{ ref('fct__regular_rookie_playoffs_mvps_full_players_stats_seasons_97_22') }}
 )
 
-,mvpstats as (
+, mvpstats as (
     select
         rsm.seasons,
         rsm.player_name,
@@ -41,11 +40,11 @@ select
     m.seasons as mvp_season,
     l.seasons as regular_season,
     m.player_name,
-    'mvp players' as mvp_category,
+    'mvp_year' as mvp_category,
     m.rsm_points_per_game as avg_ppg,
     m.rsm_assists_per_game as avg_apg,
     m.rsm_total_rebounds_per_game as avg_rpg,
-    'league average players' as regular_season_category,
+    'regular_season_year' as regular_season_category,
     l.league_avg_ppg,
     l.league_avg_apg,
     l.league_avg_rpg

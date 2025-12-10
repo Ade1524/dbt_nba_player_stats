@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: int_nba_player_stats__players_playoffs
+    description: >
+      Playoffs-only player list containing unique player identifiers and birth year.
+
+    columns:
+      - name: player_id
+        description: "{{ doc('player_id') }}"
+        tests: 
+        - not_null 
+        
+
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests: 
+        - not_null
+
+      - name: year_of_birth
+        description: "{{ doc('year_of_birth') }}" 
+        tests: 
+        - not_null

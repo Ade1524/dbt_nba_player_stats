@@ -1,9 +1,11 @@
 with nba_playoff_stats__players as (
-    select * from {{ ref('nba_playoff_stats')}}
+    select * 
+    from {{ ref('nba_playoff_stats')}}
 )
 
 , renaming_playoff_players_columns as  (
-          select {{ get_season('season') }} as seasons
+          select 
+                 {{ get_season('season') }} as seasons
                 ,replace(player, '-', ' ')::varchar(1000) as player_name
                 ,pos::varchar(1000) as position
                 ,{{ get_year_of_birth('season', 'age') }} as year_of_birth
@@ -55,18 +57,19 @@ with nba_playoff_stats__players as (
                 ,vorp::float as value_over_replacement_player
                 ,ws::float as win_share
                 ,ws_per_48::float as  win_share_per_48_games
-
-            from nba_playoff_stats__players
+         from nba_playoff_stats__players
 )
 
 ,playoff_players_stats as (
-    select  {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
+    select  
+             {{ get_player_id('player_name', 'year_of_birth')}} as player_id 
             , *
     from renaming_playoff_players_columns
     order by seasons
 )
 
-select * from playoff_players_stats
+select * 
+from playoff_players_stats
 
 
 

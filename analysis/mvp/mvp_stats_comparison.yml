@@ -7,11 +7,6 @@ models:
     columns:
 
       - name: mvp_season
-        description: The specific NBA season when the player was of MVP.
-        tests:
-        - not_null
-
-      - name: regular_season
         description: The specific NBA season (e.g., '2015-16') analyzed.
         tests:
         - not_null

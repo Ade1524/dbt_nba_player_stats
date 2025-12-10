@@ -1,0 +1,128 @@
+version: 2
+
+models:
+  - name: int_nba_player_stats__players_97_22_with_added_team_name_column
+    description: >
+      Intermediate model containing NBA regular season player statistics from 1997–2022,
+      enriched with full team name. One row per player per season with a globally unique player_id
+      (player_name + year_of_birth).
+
+    columns:
+      - name: team_name
+        description: "Full team name for the season (added enrichment column)."
+        tests:
+          - not_null
+
+
+      - name: player_id
+        description: "Globally unique identifier for each player (player_name + year_of_birth)."
+        tests:
+          - not_null
+
+      - name: rank_id
+        description: "Player ranking index from the source dataset."
+
+      - name: seasons
+        description: "Season label or range (ex: 1997–98, 2021–22)."
+        tests:
+          - not_null
+
+      - name: player_name
+        description: "Full name of the NBA player."
+        tests:
+          - not_null
+
+      - name: year_of_birth
+        description: "Birth year of the player used to generate player_id."
+        tests:
+          - not_null
+
+      - name: position
+        description: "Player position."
+        tests:
+          - not_null
+
+      - name: age
+        description: "Age of the player during the season."
+        tests:
+          - not_null
+
+      - name: teams
+        description: "Team abbreviation or code (ex: LAL, CHI, BOS)."
+        tests:
+          - not_null
+
+      - name: games
+        description: "Total regular season games played."
+
+      - name: games_started
+        description: "Games started in the season."
+
+      - name: minutes_played_per_game
+        description: "Average minutes played per game."
+
+      - name: field_goals_per_game
+        description: "Average field goals made per game."
+
+      - name: field_goal_attempts_per_game
+        description: "Average field goal attempts per game."
+
+      - name: field_goal_percentage
+        description: "Regular season FG%."
+
+      - name: c_3_point_field_goals_per_game
+        description: "Average 3PT made per game."
+
+      - name: c_3_point_field_goal_attempts_per_game
+        description: "Average 3PT attempts per game."
+
+      - name: c_3_point_field_goal_percentage
+        description: "3PT%."
+
+      - name: c_2_point_field_goals_per_game
+        description: "2PT made per game."
+
+      - name: c_2_point_field_goal_attempts_per_game
+        description: "2PT attempted per game."
+
+      - name: c_2_point_field_goal_percentage
+        description: "2PT%."
+
+      - name: effective_field_goal_percentage
+        description: "Per-game effective FG%."
+
+      - name: free_throws_per_game
+        description: "Free throws made per game."
+
+      - name: free_throw_attempts_per_game
+        description: "Free throws attempted per game."
+
+      - name: free_throw_percentage
+        description: "FT%."
+
+      - name: offensive_rebounds_per_game
+        description: "Offensive rebounds per game."
+
+      - name: defensive_rebounds_per_game
+        description: "Defensive rebounds per game."
+
+      - name: total_rebounds_per_game
+        description: "Total rebounds per game."
+
+      - name: assists_per_game
+        description: "Assists per game."
+
+      - name: steals_per_game
+        description: "Steals per game."
+
+      - name: blocks_per_game
+        description: "Blocks per game."
+
+      - name: turnovers_per_game
+        description: "Turnovers per game."
+
+      - name: personal_fouls_per_game
+        description: "Personal fouls per game."
+
+      - name: points_per_game
+        description: "Average points per regular season game."

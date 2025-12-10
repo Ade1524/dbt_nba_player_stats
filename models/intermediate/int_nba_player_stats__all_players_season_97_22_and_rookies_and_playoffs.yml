@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: int_nba_player_stats__all_players_season_97_22_and_rookies_and_rookies_and_playoffs
+    description: "Intermediate table containing all NBA players across regular seasons (1997–2022), rookies (1980–2023), and playoffs (1950–2022). One row per player season record with unified player identifier."
+
+    columns:
+      - name: player_id
+        description: "Globally unique player identifier created by combining player_name and year_of_birth."
+        tests:
+          - not_null
+          - unique
+
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests:
+          - not_null
+
+      - name: year_of_birth
+        description: "{{ doc('year_of_birth') }}"
+        tests:
+          - not_null
