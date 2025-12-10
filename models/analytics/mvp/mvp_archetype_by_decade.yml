@@ -1,0 +1,26 @@
+version: 2
+
+models:
+
+  - name: mvp_archetype_by_decade
+    description: Tracks the historical distribution of Season MVP awards across different player archetypes (e.g., Guard, Wing, Big) grouped by decade.
+    
+    columns:
+      - name: player_archetype
+        description: The generalized position grouping (e.g., Guard, Wing, Big) assigned to the MVP winner.
+        tests:
+        - not_null
+      
+      - name: decade
+        description: The specific decade (e.g., 1990, 2000) used for aggregation.
+        tests:
+        - not_null
+
+      - name: mvp_count
+        description: The number of MVPs awarded to this specific archetype within the current decade.
+
+      - name: total_mvps_in_decade
+        description: The total number of MVP awards handed out during the decade (denominator for the share calculation).
+
+      - name: mvp_share_in_decade
+        description: The percentage share of MVPs won by this archetype in the given decade (mvp_count / total_mvps_in_decade).    

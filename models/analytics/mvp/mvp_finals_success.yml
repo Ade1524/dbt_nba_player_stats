@@ -1,0 +1,28 @@
+version: 2
+
+models:
+
+  - name: mvp_finals_success
+    description: "Tracks the performance of the regular season MVP in the NBA Finals for each season."
+    columns:
+
+      - name: season
+        description: The specific year of the NBA season (e.g., 2023). This serves as the primary key.
+        tests:
+        - not_null
+        - unique
+
+      - name: champions
+        description: The name of the team that won the NBA Championship in that season.
+
+      - name: runner_up
+        description: The name of the team that was the runner-up in the NBA Finals.
+
+      - name: mvp_player_name
+        description: The name of the regular season MVP winner.
+
+      - name: mvp_team_name
+        description: The team the MVP played for during the season.
+
+      - name: finals_result
+        description: The outcome for the MVP's team in the Finals (e.g., 'Won Championship', 'Lost Finals', 'Did Not Reach Finals').

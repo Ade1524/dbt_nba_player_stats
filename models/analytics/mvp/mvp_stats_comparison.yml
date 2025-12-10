@@ -1,0 +1,36 @@
+version: 2
+
+models:
+
+  - name: mvp_stats_comparison
+    description: "Compares the statistical averages (PPG, APG, RPG) of MVP winners against the league average for the corresponding season."
+    columns:
+
+      - name: mvp_season
+        description: The specific NBA season (e.g., '2015-16') analyzed.
+        tests:
+        - not_null
+
+      - name: player_name
+        description: The name of the MVP winner for the corresponding season.
+
+      - name: mvp_category
+        description: The statistical category analyzed (e.g., 'MVP Winner' vs. 'League Average').
+
+      - name: avg_ppg
+        description: The average points per game (PPG) for this player/category in that season.
+
+      - name: avg_apg
+        description: The average assists per game (APG) for this player/category in that season.
+
+      - name: avg_rpg
+        description: The average rebounds per game (RPG) for this player/category in that season.
+
+      - name: league_avg_ppg
+        description: The league-wide average points per game for the corresponding season.
+
+      - name: league_avg_apg
+        description: The league-wide average assists per game for the corresponding season.
+
+      - name: league_avg_rpg
+        description: The league-wide average rebounds per game for the corresponding season.  

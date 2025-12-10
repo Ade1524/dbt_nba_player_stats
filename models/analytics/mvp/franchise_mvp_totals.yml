@@ -1,0 +1,24 @@
+version: 2
+
+models:
+
+  - name: franchise_mvp_totals
+    description: Aggregates the total number of Season MVPs and Finals MVPs won by each NBA franchise throughout history.
+    
+    columns:
+      - name: franchise_name
+        description: The official name of the NBA franchise (e.g., Boston Celtics). This serves as the primary key.
+        tests:
+        - not_null
+        - unique
+      
+      - name: total_season_mvps
+        description: The cumulative count of Season MVP awards won by players while on this franchise.
+        tests:
+        - not_null
+
+      - name: total_finals_mvps
+        description: The number of MVPs awarded to this specific archetype within the current decade.
+        tests:
+        - not_null
+        
