@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: mvp_finals_success
+    description: >
+      Tracks whether season MVP winners reached the NBA Finals and
+      whether they won the championship in the same season.
+
+    columns:
+      - name: seasons
+        description: "{{ doc('seasons') }}"
+        tests:
+          - not_null
+
+      - name: champions
+        description: NBA champion team for the season
+
+      - name: runner_up
+        description: NBA Finals runner-up team
+
+      - name: mvp_player_name
+        description: Name of the season MVP
+        tests:
+          - not_null
+
+      - name: mvp_team_name
+        description: Team of the season MVP
+        tests:
+          - not_null
+
+      - name: finals_result
+        description: Outcome for MVP team in the Finals:Champion, Runner-up, or Did Not Reach Finals
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - champion
+                - finalist
+                - no finals appearance

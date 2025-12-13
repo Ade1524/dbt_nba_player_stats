@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: mvp_stats_comparison
+    description: Contains regular-season statistics for MVP candidates, used to analyze which performance metrics most strongly predict winning the NBA Most Valuable Player award. The model includes only seasons where official MVP voting data is available.
+
+    columns:
+      - name: player_id
+        description: "{{ doc('player_id') }}"
+        tests:
+          - not_null
+
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests:
+          - not_null
+
+      - name: seasons
+        description: "{{ doc('seasons') }}"
+        tests:
+          - not_null
+
+      - name: points
+        description: Average points per game during the regular season in the MVP voting year
+        tests:
+          - not_null
+
+      - name: assists
+        description: Average assists per game during the regular season in the MVP voting year
+        tests:
+          - not_null
+
+      - name: ws
+        description: Win Shares accumulated by the player during the regular season
+        tests:
+          - not_null
+
+      - name: voting
+        description: MVP voting score or rank indicating the players final position in the MVP voting results (higher = stronger MVP candidacy)
+        tests:
+          - not_null

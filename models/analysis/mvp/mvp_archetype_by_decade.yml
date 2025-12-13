@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: mvp_archetype_by_decade
-    description: >
+    description: 
       Aggregates season MVPs by decade and player archetype (guards, wings, bigs)
       to analyze how MVP player profiles have evolved over time.
 
@@ -12,10 +12,13 @@ models:
         tests:
           - not_null
 
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests:
+          - not_null
+      
       - name: player_archetype
-        description: >
-          Player role classification based on position grouping
-          (Guard, Wing, Big).
+        description: Player role classification based on position grouping (Guard, Wing / Forward, Big).
         tests:
           - not_null
           - accepted_values:
@@ -32,8 +35,6 @@ models:
           - not_null
 
       - name: mvp_share_in_decade
-        description: >
-          Share of MVP awards won by this archetype in the decade
-          (mvp_count / total_mvps_in_decade).
+        description: Share of MVP awards won by this archetype in the decade (mvp_count / total_mvps_in_decade).
         tests:
           - not_null

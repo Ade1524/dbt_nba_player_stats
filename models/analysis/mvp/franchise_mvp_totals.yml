@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: franchise_mvp_totals
+    description: Franchise-level aggregation of Season MVPs and Finals MVPs,measuring organizational success in producing elite players.
+
+    columns:
+      - name: franchise_name
+        description: NBA franchise name
+        tests:
+          - not_null
+          - unique
+
+      - name: total_season_mvps
+        description: Total number of regular season MVPs won by the franchise
+        tests:
+          - not_null
+
+      - name: total_finals_mvps
+        description: Total number of Finals MVPs won by the franchise
+        tests:
+          - not_null
