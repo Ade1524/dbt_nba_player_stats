@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: playoff_performance_elevation
+    description: Identifies NBA players who elevate their scoring performance in the playoffs compared to the regular season. Elevation is measured as the difference between playoff points per game and regular season points per game, averaged across all qualifying seasons. Only seasons with meaningful regular season and playoff participation are included.
+
+    columns:
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests:
+          - not_null
+          - unique
+
+      - name: average_ppg_elevation
+        description: Average increase in points per game from regular season to playoffs.Positive values indicate improved scoring performance under playoff pressure.
+        tests:
+          - not_null
+
+      - name: seasons_analyzed
+        description: Number of seasons included in the calculation where the player met minimum regular season games and playoff games thresholds.
+        tests:
+          - not_null

@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: all_rookie_rankings
+    description: Ranks NBA rookie seasons using a composite rookie score based on per-game scoring, playmaking, rebounding, and Rookie of the Year voting results. This model identifies the most impactful rookie seasons in NBA history.
+
+    columns:
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests:
+          - not_null
+
+      - name: seasons
+        description: "{{ doc('seasons') }}"
+        tests:
+          - not_null
+
+      - name: ppg
+        description: Average points per game during the rookie season
+
+      - name: rpg
+        description: Average rebounds per game during the rookie season
+
+      - name: apg
+        description: Average assists per game during the rookie season
+
+      - name: rookie_score
+        description: Composite rookie impact score calculated using weighted contributions from points, assists, rebounds, and Rookie of the Year voting points. Higher values indicate more impactful rookie seasons.

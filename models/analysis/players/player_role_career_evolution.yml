@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: player_role_career_evolution
+    description: Tracks how NBA player roles evolve across their careers by measuring year-over-year changes in scoring, playmaking, and defensive impact. Player roles are approximated using per-game statistics:points per game (scorer), assists per game (playmaker), and defensive stocks (blocks + steals). Only seasons with sufficient playing time are included.
+
+    columns:
+      - name: seasons
+        description: "{{ doc('seasons') }}"
+        tests:
+          - not_null
+
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests:
+          - not_null
+
+      - name: r_age
+        description: Player age during the given NBA season
+        tests:
+          - not_null
+
+      - name: avg_ppg
+        description: Average points per game for the player in the given season. Serves as a proxy for scoring role.
+        tests:
+          - not_null
+
+      - name: avg_apg
+        description: Average assists per game for the player in the given season. Serves as a proxy for playmaking responsibility.
+        tests:
+          - not_null
+
+      - name: avg_def_stocks
+        description: Combined defensive impact metric calculated as blocks per game plus steals per game, representing defensive anchoring.
+        tests:
+          - not_null
+
+      - name: ppg_change
+        description: Year-over-year change in points per game for the player, calculated using a lag window function ordered by age. Positive values indicate increased scoring responsibility.
+        tests:
+          - not_null
+
+      - name: apg_change
+        description: Year-over-year change in assists per game for the player, calculated using a lag window function ordered by age. Positive values indicate increased playmaking responsibility.
+        tests:
+          - not_null

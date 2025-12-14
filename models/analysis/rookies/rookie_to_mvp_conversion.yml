@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: rookie_to_mvp_conversion
+    description: Analyzes the relationship between rookie-season performance and future MVP success by identifying whether players who had strong rookie seasons later won a regular-season MVP award.
+
+    columns:
+      - name: player_id
+        description: "{{ doc('player_id') }}"
+        tests:
+          - not_null
+          - unique
+
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests:
+          - not_null
+
+      - name: rookie_season
+        description: NBA season in which the player competed as a rookie
+        tests:
+          - not_null
+
+      - name: rookie_ppg
+        description: Average points per game during the rookie season
+        tests:
+          - not_null
+
+      - name: later_became_mvp
+        description: Indicator flag showing whether the player later won a regular-season MVP award (1 = Yes, 0 = No).
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
