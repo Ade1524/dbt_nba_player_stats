@@ -13,7 +13,7 @@ with player_stats as (
         ro.ro_player_name,
         -- assign a rank (rn) to find the player's first recorded season (rn=1)
         row_number() over (partition by ro.ro_player_name order by ro.ro_seasons) as rn
-    from {{ ref('fct__regular_rookie_playoffs_mvps_full_players_stats_seasons_97_22') }} ro
+    from  player_stats ro
     where ro.ro_player_name is not null
 )
 

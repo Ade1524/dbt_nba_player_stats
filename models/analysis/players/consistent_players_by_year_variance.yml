@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: consistent_players_by_year_variance
+    description: Identifies the most statistically consistent NBA players by measuring year-over-year scoring stability. Consistency is evaluated using the coefficient of variation of points per game across seasons, with filters applied to ensure meaningful sample sizes.
+
+    columns:
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests:
+          - not_null
+          - unique
+
+      - name: mean_ppg
+        description: Average points per game across all qualifying seasons
+        tests:
+          - not_null
+
+      - name: stddev_ppg
+        description: Standard deviation of points per game across seasons. Lower values indicate greater scoring consistency.
+        tests:
+          - not_null
+
+      - name: total_seasons
+        description: Number of seasons included in the consistency calculation
+        tests:
+          - not_null
+
+      - name: ppg_coefficient_of_variation
+        description: Ratio of standard deviation to mean points per game, used as a normalized measure of year-over-year scoring consistency. Lower values indicate more consistent players.
+        tests:
+          - not_null

@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: mrt_q02_dominance_by_decade
+    description: Analyzes how NBA championship dominance has shifted across decades from the 1940s through the 2020s by aggregating titles won by each franchise and calculating their share of championships within each decade.
+
+    columns:
+      - name: decade
+        description: Decade derived from the season start year (e.g. 1950s, 1990s, 2020s).
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - '1950s'
+                - '1960s'
+                - '1970s'
+                - '1980s'
+                - '1990s'
+                - '2000s'
+                - '2010s'
+                - '2020s'
+
+      - name: franchise
+        description: Championship-winning franchise for the season
+        tests:
+          - not_null
+
+      - name: titles
+        description: Number of championships won by the franchise in the decade
+        tests:
+          - not_null
+
+      - name: pct_of_decade_titles
+        description: Percentage share of total championships in the decade won by the franchise.
+        tests:
+          - not_null

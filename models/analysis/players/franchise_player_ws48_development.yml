@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: franchise_player_ws48_development
+    description:  Measures which NBA franchises are most effective at developing player performance year-over-year. Player development is defined as a positive change in playoff Win Shares per 48 minutes (WS/48) from one season to the next, restricted to players who remained on the same team and met minimum games played thresholds. Results are aggregated at the team level.
+
+    columns:
+      - name: team_name
+        description: "{{ doc('team_name') }}"
+        tests:
+          - not_null
+          - unique
+
+      - name: avg_player_development_metric
+        description: Average year-over-year improvement in playoff Win Shares per 48 minutes (WS/48) among players who improved while remaining on the same team. Higher values indicate stronger player development.
+        tests:
+          - not_null
+
+      - name: total_improvement_instances
+        description: Number of qualifying year-over-year player improvement observations included for the franchise. Teams with fewer than the minimum threshold are excluded.
+        tests:
+          - not_null

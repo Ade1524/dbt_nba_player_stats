@@ -54,7 +54,7 @@ with player_stats as (
 
 , final as (
     select 
-         distinct seasons as season
+         distinct seasons as seasons
         ,champions
         ,runner_up
         ,player_name as mvp_player_name
@@ -68,4 +68,4 @@ with player_stats as (
 select
     *
 from final
-order by  season
+order by  seasons

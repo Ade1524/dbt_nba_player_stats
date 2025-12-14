@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: best_statistical_players_by_era_points_per_game
+    description: Identifies the top-performing NBA players within each modern era (late 1990s through 2020s) using a composite statistical score based on scoring, playmaking, and rebounding. The model returns the top 10 players per era by composite performance.
+
+    columns:
+      - name: era
+        description: Era classification derived from the season start year (late_90s, 2000s, 2010s, 2020s).
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - late_90s
+                - 2000s
+                - 2010s
+                - 2020s
+
+      - name: player_id
+        description: "{{ doc('player_id') }}"
+        tests:
+          - not_null
+
+      - name: player_name
+        description: "{{ doc('player_name') }}"
+        tests:
+          - not_null
+
+      - name: composite_score
+        description: Composite performance score calculated from weighted averages of points, assists, and rebounds per game. Higher values indicate stronger overall impact within the era.
+        tests:
+          - not_null
+
+      - name: avg_ppg
+        description: Average points per game for the player within the era
+        tests:
+          - not_null
+
+      - name: avg_apg
+        description: Average assists per game for the player within the era
+        tests:
+          - not_null
+
+      - name: avg_rpg
+        description: Average rebounds per game for the player within the era
+        tests:
+          - not_null
